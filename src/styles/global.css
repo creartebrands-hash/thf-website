@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Pinyon+Script&display=swap');
+
+:root {
+  --color-wine: #3d1011;
+  --color-wine-rgb: 61, 16, 17;
+  --color-navy: #192543;
+  --color-navy-rgb: 25, 37, 67;
+  --color-olive: #262818;
+  --color-olive-rgb: 38, 40, 24;
+  --color-sand: #e7d6c3;
+  --color-sand-rgb: 231, 214, 195;
+  --color-gold: #d4af37;
+  --color-gold-light: #f3e5ab;
+  --color-dark-bg: #0b0e18;
+
+  --font-serif: 'Cinzel', 'Playfair Display', Georgia, serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-script: 'Pinyon Script', cursive;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-dark-bg);
+  color: var(--color-sand);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Background Atmosphere */
+.bg-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 0%, #16223e 0%, #0c101d 50%, #06070b 100%);
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.35;
+  animation: floatOrb 18s ease-in-out infinite alternate;
+}
+
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: var(--color-navy);
+  top: -15%;
+  left: 20%;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: var(--color-wine);
+  bottom: 0%;
+  right: 5%;
+  animation-duration: 22s;
+  animation-delay: -5s;
+  opacity: 0.45;
+}
+
+.orb-3 {
+  width: 420px;
+  height: 420px;
+  background: var(--color-olive);
+  top: 35%;
+  left: -8%;
+  animation-duration: 26s;
+  animation-delay: -10s;
+  opacity: 0.35;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(231, 214, 195, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes floatOrb {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(35px, 25px) scale(1.08);
+  }
+  100% {
+    transform: translate(-30px, -20px) scale(0.95);
+  }
+}
+
+/* Glassmorphism Card */
+.glass-card {
+  background: rgba(25, 37, 67, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(231, 214, 195, 0.18);
+  border-radius: 28px;
+  box-shadow: 
+    0 24px 60px rgba(0, 0, 0, 0.6),
+    0 0 45px rgba(61, 16, 17, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+}
+
+/* Typography styles */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Shimmer & Glow effects */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, var(--color-sand) 35%, var(--color-gold-light) 75%, #dfb74a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0e18;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(231, 214, 195, 0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(231, 214, 195, 0.45);
+}
